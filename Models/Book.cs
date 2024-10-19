@@ -9,7 +9,7 @@ namespace Marian_Melisa_Lab2.Models
 
         [Display(Name = "Book Title")]
         public string Title { get; set; }
-        public string Author { get; set; }
+        //public string Author { get; set; }
 
         [Column(TypeName = "decimal(6,2)")]
         public decimal Price { get; set; }
@@ -17,8 +17,12 @@ namespace Marian_Melisa_Lab2.Models
         [DataType(DataType.Date)]
         public DateTime PublishingDate { get; set; }
     
+        //foreign key for Author
+        public int AuthorID { get; set; }
 
-    public int? PublisherID { get; set; }
-    public Publisher? Publisher { get; set; } //navigation property
+        //navigation properties
+        public Author Author { get; set; }
+        public int? PublisherID { get; set; }
+        public Publisher? Publisher { get; set; } //navigation property
     }
 }
